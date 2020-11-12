@@ -8,7 +8,7 @@ public:
 	~Animation();
 
 	void Update(int row, float deltaTime, bool faceRight );
-	void updatesunshine(int row,float deltaTime);
+	void updatesunshine(int row, float deltaTime, bool faceRight);
 
 public :
 	sf::IntRect uvRect;
