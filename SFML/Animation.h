@@ -9,6 +9,7 @@ public:
 
 	void Update(int row, float deltaTime, bool faceRight );
 	void updatesunshine(int row, float deltaTime, bool faceRight);
+	void updateenemy(int row, float deltaTime);
 
 public :
 	sf::IntRect uvRect;

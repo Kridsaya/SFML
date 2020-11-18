@@ -7,6 +7,7 @@
 #include"sunshine.h"
 #include <sstream>
 #include"Menu.h"
+#include"Enemy.h"
 
 static const float VIEW_HEIGHT = 512.0f;
 
@@ -37,6 +38,12 @@ std::vector <sunshine> itemVector;
 itemVector.push_back(sunshine(&ITEM, sf::Vector2u(2, 1), 1.00f, 2000.0f, 170.0f));
 itemVector.push_back(sunshine(&ITEM, sf::Vector2u(2, 1), 1.00f, 1000.0f, 250.0f));
 itemVector.push_back(sunshine(&ITEM, sf::Vector2u(2, 1), 1.00f, 3150.0f, 150.0f));
+
+sf::Texture snail;
+snail.loadFromFile("fox test04.png");
+std::vector <Enemy> SnailVector;
+SnailVector.push_back(Enemy(&snail, sf::Vector2u(3, 4), 0.08f, 2010.0f, 170.0f));
+SnailVector.push_back(Enemy(&snail, sf::Vector2u(3, 4), 0.08f, 1010.0f, 250.0f));
 
 
 sf::Texture playerTexture;
@@ -203,6 +210,15 @@ while (window.isOpen())
 		for (int i = 0; i < itemVector.size(); i++)
 		{
 			itemVector[i].draw(window);
+		}
+
+		for (int i = 0; i < SnailVector.size(); i++) {
+			SnailVector[i].draw(window);
+		}
+		// Alien
+		for (int i = 0; i < SnailVector.size(); i++) {
+			//SnailVector[i].update1(deltaTime, bullet1);
+			SnailVector[i].update2(deltaTime, player);
 		}
 		player.Draw(window);
 		window.draw(scoreText);
